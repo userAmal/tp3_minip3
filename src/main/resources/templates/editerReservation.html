@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="utf-8">
+	<title>Ajout des Reservations</title>
+</head>
+
+<body>
+	<div th:replace="template"></div>
+	<div class="container mt-5">
+		<div class="card">
+			<div class="card-header">
+				Modifier des Reservations
+			</div>
+			<div class="card-body">
+				<form th:action="@{saveReservation}" method="post">
+					<div class="form-group">
+						<label class="control-label" hidden>ID reservation :</label>
+						<input type="hidden" name="idReservation" class="form-control" th:value="${reservation.idReservation}" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Nom client :</label>
+						<input type="text" name="nomClient" class="form-control" th:value="${reservation.nomClient}" />
+						<span th:errors=${reservation.nomClient} class="text-danger"> </span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Prix reservation :</label>
+						<input type="text" name="prixSejour" class="form-control" th:value="${reservation.prixSejour}" />
+						<span th:errors=${reservation.prixProduit} class="text-danger"> </span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">date Reservation:</label>
+						<input type="date" name="dateReservation" class="form-control"
+							th:value="${reservation.dateReservation}" />
+						<span th:errors=${reservation.dateReservation} class="text-danger"> </span>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">Valider</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
